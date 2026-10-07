@@ -1,0 +1,71 @@
+{
+  "name": "hono-cloudflare-rate-limit",
+  "version": "0.0.1",
+  "description": "Hono rate limit middleware for Cloudflare Workers using the native Rate Limiting binding. Throttle requests per IP, user, or API key and return 429 Too Many Requests.",
+  "type": "module",
+  "license": "MIT",
+  "author": "binochoi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binochoi/hono-cloudflare-rate-limit.git"
+  },
+  "homepage": "https://github.com/binochoi/hono-cloudflare-rate-limit#readme",
+  "bugs": {
+    "url": "https://github.com/binochoi/hono-cloudflare-rate-limit/issues"
+  },
+  "keywords": [
+    "hono",
+    "hono-middleware",
+    "middleware",
+    "rate-limit",
+    "rate-limiter",
+    "ratelimit",
+    "rate-limiting",
+    "throttle",
+    "throttling",
+    "cloudflare",
+    "cloudflare-workers",
+    "workers",
+    "workerd",
+    "wrangler",
+    "ratelimits",
+    "cloudflare-rate-limiting",
+    "429",
+    "too-many-requests",
+    "brute-force",
+    "abuse-protection",
+    "api-security",
+    "edge",
+    "serverless",
+    "typescript"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "obuild --stub",
+    "build:dist": "obuild",
+    "release": "pnpm build:dist && pnpm publish --ignore-scripts",
+    "clean": "rm -rf dist node_modules .turbo",
+    "lint": "oxlint ./src && tsc --noEmit",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "hono": "^4.9.0",
+    "@cloudflare/workers-types": "^4.20250101.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250101.0",
+    "@types/node": "^22.10.0",
+    "hono": "^4.9.0",
+    "obuild": "^0.4.38",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  }
+}
